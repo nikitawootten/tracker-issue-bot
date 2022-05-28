@@ -98,7 +98,9 @@ async function getIssues(client: Octokit, config: Config) {
         })
     );
     // cap array size at configured maximum
-    issues.length = issues.length > config.max ? config.max : issues.length;
+    if (config.max > 0 && issues.length > config.max) {
+        issues.length = config.max;
+    }
     return issues;
 }
 
