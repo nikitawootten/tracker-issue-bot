@@ -70,6 +70,7 @@ async function getIssues(client: Octokit, config: Config) {
             owner: context.repo.owner,
             repo: context.repo.repo,
             sort: config.sort,
+            state: 'all',
             per_page: 100
         },
         (response, done) => response.data.filter((issue) => {
@@ -127,7 +128,8 @@ async function createOrUpdateTracker(client: Octokit, config: Config, issues: Aw
         {
             owner: config.targetOwner,
             repo: config.targetName,
-            state: 'all'
+            state: 'all',
+            per_page: 100
         }
     );
 
