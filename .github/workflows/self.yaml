@@ -5,6 +5,7 @@ on:
       - opened
       - edited
       - closed
+  workflow_dispatch: {}
 jobs:
   update_tracker:
     runs-on: ubuntu-latest
