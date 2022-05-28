@@ -62,10 +62,10 @@ export function getConfiguration(): Config {
 async function getIssues(client: Octokit, config: Config) {
     let addedIssues = 0;
     const issues = await client.paginate(
-        client.rest.issues.list,
+        client.rest.issues.listForRepo,
         {
-            repo: `${context.repo.owner}/${context.repo.repo}`,
-            filter: 'all',
+            owner: context.repo.owner,
+            repo: context.repo.repo,
             sort: config.sort,
             per_page: 100
         },
@@ -118,10 +118,10 @@ async function createOrUpdateTracker(client: Octokit, config: Config, issues: Aw
     // check issue exists
     // get all issues created by self on target repo
     const targetSelfIssues = await client.paginate(
-        client.rest.issues.list,
+        client.rest.issues.listForRepo,
         {
-            repo: `${config.targetOwner}/${config.targetName}`,
-            filter: 'created'
+            owner: config.targetOwner,
+            repo: config.targetName,
         }
     );
 
