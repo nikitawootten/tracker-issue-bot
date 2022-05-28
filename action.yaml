@@ -1,0 +1,41 @@
+name: Tracker Issue Bot
+description: Automatically keep tracker issues up to date
+author: nikitawootten
+branding:
+  color: purple
+  icon: list
+inputs:
+  token:
+    description: GitHub token of bot account.
+    required: true
+  targetName:
+    description: Name of target repository to post the tracker issue
+    required: true
+  targetOwner:
+    description: Name of target repository's owner or organization
+    required: true
+  title:
+    description: Title of the tracker issue
+    required: true
+  header:
+    description: Header of tracker issue body
+    required: true
+  footer:
+    description: Footer of tracker issue body
+    required: false
+  labelsRequire:
+    description: Labels required for an issue to be included by the tracker
+    required: false
+  labelsExclude:
+    description: Labels that will exclude an issue from being included by the tracker
+    required: false
+  sort:
+    description:  The method to sort tracker issues by ('created', 'updated', or 'comments')
+    default: created
+    required: true
+  max:
+    description: A hard cutoff to the number of issues to include
+    required: true
+runs:
+  using: node16
+  main: dist/main.js
