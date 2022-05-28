@@ -52,8 +52,8 @@ export function getConfiguration(): Config {
         title: getInput('title', {required: true}),
         header: getInput('header', {required: true}),
         footer: getInput('footer'),
-        labelsRequire: getMultilineInput('labelsRequire'),
-        labelsExclude: getMultilineInput('labelsExclude'),
+        labelsRequire: getInput('labelsRequire').split(','),
+        labelsExclude: getInput('labelsExclude').split(','),
         sort,
         max,
     };

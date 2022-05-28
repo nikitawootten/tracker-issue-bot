@@ -24,10 +24,10 @@ inputs:
     description: Footer of tracker issue body
     required: false
   labelsRequire:
-    description: Labels required for an issue to be included by the tracker
+    description: Comma-seperated labels required for an issue to be included by the tracker
     required: false
   labelsExclude:
-    description: Labels that will exclude an issue from being included by the tracker
+    description: Comma-seperated labels that will exclude an issue from being included by the tracker
     required: false
   sort:
     description:  The method to sort tracker issues by ('created', 'updated', or 'comments')
