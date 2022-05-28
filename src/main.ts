@@ -110,7 +110,7 @@ async function createOrUpdateTracker(client: Octokit, config: Config, issues: Aw
         if (issue.repository) {
             issueRef = `${issue.repository.owner}/${issue.repository.name}#${issue.number}`
         }
-        return acc += `${checkBox} (${issueRef}) ${issue.title}\n`
+        return acc + `${checkBox} (${issueRef}) ${issue.title}\n`
     }, '');
 
     const trackerIssueBody = `${config.header}\n${listText}\n${config.footer}`;
