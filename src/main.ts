@@ -45,6 +45,9 @@ export function getConfiguration(): Config {
         throw new Error('`max` must be an integer');
     }
 
+    const labelsRequireRaw = getInput('labelsRequire');
+    const labelsExcludeRaw = getInput('labelsExclude');
+
     return {
         token: getInput('token', {required: true}),
         targetName: getInput('targetName', {required: true}),
@@ -52,8 +55,8 @@ export function getConfiguration(): Config {
         title: getInput('title', {required: true}),
         header: getInput('header', {required: true}),
         footer: getInput('footer'),
-        labelsRequire: getInput('labelsRequire').split(','),
-        labelsExclude: getInput('labelsExclude').split(','),
+        labelsRequire: labelsRequireRaw !== '' ? labelsRequireRaw.split(',') : [],
+        labelsExclude: labelsExcludeRaw !== '' ? labelsExcludeRaw.split(',') : [],
         sort,
         max,
     };
