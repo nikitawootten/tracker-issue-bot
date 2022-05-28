@@ -14,10 +14,11 @@
     "issue"
   ],
   "scripts": {
-    "build": "tsc"
+    "prepare": "ncc build src/main.ts -o lib"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
+    "@vercel/ncc": "^0.34.0",
     "typescript": "^4.7.2"
   },
   "dependencies": {
