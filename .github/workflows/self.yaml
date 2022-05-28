@@ -1,6 +1,10 @@
 name: Self Test
 on:
-  issues: {}
+  issues:
+    types:
+      - opened
+      - edited
+      - closed
 jobs:
   update_tracker:
     runs-on: ubuntu-latest
