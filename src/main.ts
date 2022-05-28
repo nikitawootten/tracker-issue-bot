@@ -34,7 +34,7 @@ export function getConfiguration(): Config {
     let sort = undefined;
     if (sortRaw) {
         if (!['created', 'updated', 'comments'].includes(sortRaw)) {
-            throw new Error('`sort` must be iether `created`, `updated`, or `comments`');
+            throw new Error('`sort` must be either `created`, `updated`, or `comments`');
         }
         sort = sortRaw as 'created' | 'updated' | 'comments' | undefined;
     }
@@ -64,7 +64,7 @@ async function getIssues(client: Octokit, config: Config) {
     const issues = await client.paginate(
         client.rest.issues.list,
         {
-            repo: context.repo.repo,
+            repo: `${context.repo.owner}/${context.repo.repo}`,
             filter: 'all',
             sort: config.sort,
             per_page: 100
