@@ -90,7 +90,7 @@ async function getIssues(client: Octokit, config: Config) {
             }
 
             addedIssues += 1;
-            if (addedIssues >= config.max) {
+            if (config.max > 0 && addedIssues >= config.max) {
                 done(); // no need to grab any more issues
             }
 
