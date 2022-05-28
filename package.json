@@ -5,7 +5,17 @@
   "main": "index.js",
   "author": "Nikita Wootten",
   "license": "MIT",
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitawootten/tracker-issue-bot.git"
+  },
+  "keywords": [
+    "actions",
+    "issue"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/node": "^17.0.35",
     "typescript": "^4.7.2"

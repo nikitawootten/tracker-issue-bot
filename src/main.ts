@@ -17,11 +17,16 @@ type Config = {
 }
 
 async function main() {
+    console.log('Getting configuration...');
     const config = getConfiguration();
+    console.log('Authenticating with token...');
     const client = getOctokit(config.token);
 
+    console.log(`Finding matching issues in ${context.repo.owner}/${context.repo.repo}`);
     const issues = await getIssues(client, config);
+    console.log(`Found ${issues.length} matching issues`);
     createOrUpdateTracker(client, config, issues);
+    console.log(`Tracker issue in ${config.targetOwner}/${config.targetName} created/updated`);
 }
 
 export function getConfiguration(): Config {
