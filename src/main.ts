@@ -110,12 +110,12 @@ async function getIssues(client: Octokit, config: Config) {
 async function createOrUpdateTracker(client: Octokit, config: Config, issues: Awaited<ReturnType<typeof getIssues>>) {
     // create issue body
     const listText = issues.reduce((acc, issue) => {
-        const checkBox = `- [${issue.state === 'closed' ? 'X' : ' '}]`
-        let issueRef = issue.url
+        const checkBox = `- [${issue.state === 'closed' ? 'X' : ' '}]`;
+        let issueRef = issue.html_url;
         if (issue.repository) {
-            issueRef = `${issue.repository.owner}/${issue.repository.name}#${issue.number}`
+            issueRef = `${issue.repository.owner}/${issue.repository.name}#${issue.number}`;
         }
-        return acc + `${checkBox} (${issueRef}) ${issue.title}\n`
+        return acc + `${checkBox} (${issueRef}) ${issue.title}\n`;
     }, '');
 
     const trackerIssueBody = `${config.header}\n${listText}\n${config.footer}`;
