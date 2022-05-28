@@ -1,10 +1,14 @@
 name: Self Test
 on:
-  issues:
-    types:
-      - opened
-      - edited
-      - closed
+  # Triggering on issue changes could be a little too expensive for large repos
+  # issues:
+  #   types:
+  #     - opened
+  #     - edited
+  #     - closed
+  # A good compromise for most would be every weekday
+  schedule:
+    - cron: 0 12 * * 1-5
   workflow_dispatch: {}
 jobs:
   update_tracker:
