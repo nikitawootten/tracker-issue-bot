@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           targetName: tracker-issue-bot
           targetOwner: nikitawootten
-          title: Tracker issue
+          title: Tracker issue for this repository
           header: |
             # Tracker Issue for nikitawootten/tracker-issue-bot
 

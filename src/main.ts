@@ -127,6 +127,7 @@ async function createOrUpdateTracker(client: Octokit, config: Config, issues: Aw
         {
             owner: config.targetOwner,
             repo: config.targetName,
+            state: 'all'
         }
     );
 
